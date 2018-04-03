@@ -41,7 +41,7 @@ export class AppComponent implements OnInit {
         }
 
         this.sortedEpisodes = data.sort((a, b) => {
-            let isAsc = sort.direction === "asc";
+            const isAsc = sort.direction === "asc";
 
             switch (sort.active) {
                 case "air_no": return compare(a.air_no, b.air_no, isAsc);

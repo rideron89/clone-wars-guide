@@ -22,8 +22,8 @@ export class DataService {
         return episodes.map(ep => new Episode(ep.air_no, ep.episode_no, ep.title));
     }
 
-    saveEpisodes(episodes: Episode[]) {
-        store.set("episodes", episodes);
+    saveEpisodes(data: Episode[]) {
+        store.set("episodes", data);
     }
 
 }

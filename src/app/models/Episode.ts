@@ -9,8 +9,8 @@ export class Episode {
     watched: boolean;
 
     constructor(air_no: string, episode_no: string, title: string, watched?: boolean) {
-        this.air_no = parseInt(air_no);
-        this.episode_no = parseInt(episode_no);
+        this.air_no = parseInt(air_no, 10);
+        this.episode_no = parseInt(episode_no, 10);
         this.title = title;
         this.watched = !!watched;
     }
