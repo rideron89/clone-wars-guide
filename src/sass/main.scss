@@ -1,0 +1,18 @@
+$font-karla: Karla, Helvetica, Arial, sans-serif;
+
+@import "theme";
+
+@import "~app/app.component.scss";
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+html, body {
+    color: #404040;
+    font-family: $font-karla;
+    font-size: 18px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}

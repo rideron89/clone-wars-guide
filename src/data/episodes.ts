@@ -1,4 +1,5 @@
-[
+
+export const episodes = [
     {
           "air_no": "1",
           "episode_no": "216",
