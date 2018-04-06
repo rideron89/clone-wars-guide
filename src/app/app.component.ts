@@ -3,7 +3,7 @@ import { Component, OnInit } from "@angular/core";
 import { Sort } from "@angular/material";
 
 import { DataService } from "./data.service";
-import { Episode } from "./models/Episode";
+import { Episode } from "./models";
 
 function compare(a, b, isAsc) {
     return (a < b ? -1 : 1) * (isAsc ? 1 : -1);

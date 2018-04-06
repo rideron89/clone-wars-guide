@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 
 import { episodes } from "../data/episodes";
-import { Episode } from "./models/Episode";
+import { Episode } from "./models";
 
 const store = require("store");
 
