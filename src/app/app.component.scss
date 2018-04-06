@@ -1,18 +1,46 @@
 .container {
+    background: #efefef;
     padding: 40px;
 }
 
 .episode-table {
-    border-spacing: 3px;
+    border-spacing: 0;
     width: 100%;
 }
 
-.air-no-cell {
-    text-align: center;
+.data-row {
+    td {
+        border-top: 1px solid #e8e8e8;
+        padding: 6px;
+    }
 }
 
-.episode-no-cell {
-    text-align: center;
+.air-no {
+    &-header {
+        width: 100px;
+
+        .mat-sort-header-container {
+            justify-content: center;
+        }
+    }
+
+    &-cell {
+        text-indent: 26px;
+    }
+}
+
+.ep-no {
+    &-header {
+        width: 100px;
+
+        .mat-sort-header-container {
+            justify-content: center;
+        }
+    }
+
+    &-cell {
+        text-indent: 18px;
+    }
 }
 
 .title-cell {

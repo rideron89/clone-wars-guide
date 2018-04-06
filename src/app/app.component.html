@@ -5,21 +5,23 @@
 </mat-toolbar>
 
 <div class="container">
-    <p>Use this tool to help you watch the episodes in chronological order!</p>
+    <p>By default, episodes are sorted by their <strong>Episode number</strong>, which is in the chronological order as reported by the [official Star Wars website](https://www.google.com/).</p>
+
+    <p>You may also sort the episodes by their <strong>Air number</strong> to view them in the order they appeared on television.</p>
 
     <mat-card>
         <mat-card-content>
             <table matSort class="episode-table" (matSortChange)="sortData($event)">
                 <tr>
-                    <th mat-sort-header="air_no">Air #</th>
-                    <th mat-sort-header="episode_no">Episode #</th>
-                    <th mat-sort-header="title">Title</th>
+                    <th class="air-no-header" mat-sort-header="air_no">Air #</th>
+                    <th class="ep-no-header" mat-sort-header="episode_no">Ep. #</th>
+                    <th class="title-header" mat-sort-header="title">Title</th>
                     <th>Watched</th>
                 </tr>
 
                 <tr class="data-row" *ngFor="let episode of sortedEpisodes">
                     <td class="air-no-cell">{{ episode.air_no }}</td>
-                    <td class="episode-no-cell">{{ episode.episode_no }}</td>
+                    <td class="ep-no-cell">{{ episode.episode_no }}</td>
                     <td class="title-cell">{{ episode.title }}</td>
                     <td class="watched-cell"><mat-checkbox [(ngModel)]="episode.watched" (change)="updateEpisode(episode)"></mat-checkbox></td>
                 </tr>
