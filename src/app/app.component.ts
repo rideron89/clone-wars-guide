@@ -15,22 +15,44 @@ function compare(a, b, isAsc) {
 })
 export class AppComponent implements OnInit {
 
+    private _hideWatched: boolean = false;
+
     episodes: Episode[];
 
-    hideWatched = false;
+    get hideWatched(): boolean {
+        return this._hideWatched;
+    }
+
+    set hideWatched(newValue: boolean) {
+        this._hideWatched = newValue;
+
+        this.dataService.saveSetting("hideWatched", newValue);
+
+        this.sortData(<Sort>{});
+    }
 
     sortedEpisodes: Episode[];
 
     constructor(private dataService: DataService) { }
 
     ngOnInit() {
-        this.episodes = this.dataService.getEpisodes();
+        const settings = this.dataService.getSettings();
 
-        this.sortedEpisodes = this.episodes.slice();
+        if (settings["hideWatched"]) {
+            this._hideWatched = settings["hideWatched"];
+        }
+
+        this.episodes = this.dataService.getEpisodes().slice();
+
+        this.sortData(<Sort>{});
     }
 
     updateEpisode(episode: Episode) {
         this.dataService.saveEpisodes(this.sortedEpisodes);
+    }
+
+    updateSetting(key: string, value: string) {
+        console.log(key, value);
     }
 
     sortData(sort: Sort) {
