@@ -9,6 +9,13 @@
 
     <p>You may also sort the episodes by their <strong>Air number</strong> to view them in the order they appeared on television.</p>
 
+    <div class="hide-watched">
+        <label>
+            <mat-checkbox [(ngModel)]="hideWatched" (change)="sortData($event)"></mat-checkbox>
+            <span> Hide watched</span>
+        </label>
+    </div>
+
     <mat-card>
         <mat-card-content>
             <table matSort class="episode-table" (matSortChange)="sortData($event)">

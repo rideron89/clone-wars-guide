@@ -17,6 +17,8 @@ export class AppComponent implements OnInit {
 
     episodes: Episode[];
 
+    hideWatched = false;
+
     sortedEpisodes: Episode[];
 
     constructor(private dataService: DataService) { }
@@ -34,13 +36,16 @@ export class AppComponent implements OnInit {
     sortData(sort: Sort) {
         const data = this.episodes.slice();
 
+        // filter out watched episodes if the user wants them hidden
+        const filteredData = data.filter(episode => !(this.hideWatched && episode.watched));
+
         if (!sort.active || sort.direction === "") {
-            this.sortedEpisodes = data;
+            this.sortedEpisodes = filteredData;
 
             return;
         }
 
-        this.sortedEpisodes = data.sort((a, b) => {
+        this.sortedEpisodes = filteredData.sort((a, b) => {
             const isAsc = sort.direction === "asc";
 
             switch (sort.active) {
