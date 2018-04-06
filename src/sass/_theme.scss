@@ -21,7 +21,7 @@ $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-
 $custom-typography: mat-typography-config(
     $font-family: "Karla, Roboto, Helvetica, Arial, sans-serif",
     $headline: mat-typography-level(32px, 32px, 700),
-    $body-1: mat-typography-level(18px, 27px, 400)
+    $body-1: mat-typography-level(16px, 24px, 400)
 );
 
 @include angular-material-typography($custom-typography);
