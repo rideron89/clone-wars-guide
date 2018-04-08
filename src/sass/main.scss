@@ -16,3 +16,16 @@ html, body {
     margin: 0;
     padding: 0;
 }
+
+a {
+    &, &:link, &:visited {
+        border-bottom: 1px solid mat-color($candy-app-accent);
+        color: mat-color($candy-app-accent);
+        text-decoration: none;
+    }
+
+    &:active, &:focus, &:hover {
+        color: inherit;
+        transition: all 0.25s ease;
+    }
+}

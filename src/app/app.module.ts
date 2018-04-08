@@ -7,6 +7,8 @@ import { NgModule } from "@angular/core";
 // Angular Material imports
 import { MatCardModule } from "@angular/material/card";
 import { MatCheckboxModule } from "@angular/material/checkbox";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatSelectModule } from "@angular/material/select";
 import { MatSortModule } from "@angular/material/sort";
 import { MatToolbarModule } from "@angular/material/toolbar";
 
@@ -24,6 +26,8 @@ import { DataService } from "./data.service";
         FormsModule,
         MatCardModule,
         MatCheckboxModule,
+        MatFormFieldModule,
+        MatSelectModule,
         MatSortModule,
         MatToolbarModule,
     ],

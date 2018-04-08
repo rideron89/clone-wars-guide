@@ -51,8 +51,20 @@
     text-align: center;
 }
 
-.hide-watched {
-    padding-bottom: 20px;
-    padding-right: 50px;
-    text-align: right;
+.utility-bar {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 48px;
+    width: 100%;
+
+    .season-filter {
+        width: 200px;
+    }
+
+    .hide-watched {
+        mat-checkbox {
+            margin-right: 5px;
+        }
+    }
 }

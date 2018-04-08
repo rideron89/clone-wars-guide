@@ -16,6 +16,7 @@ function compare(a, b, isAsc) {
 export class AppComponent implements OnInit {
 
     private _hideWatched: boolean = false;
+    private _seasonFilter: number;
 
     episodes: Episode[];
 
@@ -27,6 +28,16 @@ export class AppComponent implements OnInit {
         this._hideWatched = newValue;
 
         this.dataService.saveSetting("hideWatched", newValue);
+
+        this.sortData(<Sort>{});
+    }
+
+    get seasonFilter(): number {
+        return this._seasonFilter;
+    }
+
+    set seasonFilter(newValue: number) {
+        this._seasonFilter = newValue;
 
         this.sortData(<Sort>{});
     }
@@ -59,7 +70,19 @@ export class AppComponent implements OnInit {
         const data = this.episodes.slice();
 
         // filter out watched episodes if the user wants them hidden
-        const filteredData = data.filter(episode => !(this.hideWatched && episode.watched));
+        const filteredData = data.filter(episode => {
+            if (this.hideWatched && episode.watched) {
+                return false;
+            }
+
+            if (this.seasonFilter > 0) {
+                if (this.seasonFilter !== Math.floor(episode.episode_no / 100)) {
+                    return false;
+                }
+            }
+
+            return true;
+        });
 
         if (!sort.active || sort.direction === "") {
             this.sortedEpisodes = filteredData;

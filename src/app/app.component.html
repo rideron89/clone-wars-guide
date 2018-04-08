@@ -5,15 +5,31 @@
 </mat-toolbar>
 
 <div class="container">
-    <p>By default, episodes are sorted by their <strong>Episode number</strong>, which is in the chronological order as reported by the [official Star Wars website](https://www.google.com/).</p>
+    <p>By default, episodes are sorted by their <strong>Episode number</strong>, which is in the chronological order as reported by the <a href="http://www.starwars.com/news/star-wars-the-clone-wars-chronological-episodeorder" target="_blank">official Star Wars website</a>.</p>
 
     <p>You may also sort the episodes by their <strong>Air number</strong> to view them in the order they appeared on television.</p>
 
-    <div class="hide-watched">
-        <label>
-            <mat-checkbox [(ngModel)]="hideWatched"></mat-checkbox>
-            <span> Hide watched</span>
-        </label>
+    <div class="utility-bar">
+        <div class="season-filter">
+            <mat-form-field>
+                <mat-select placeholder="Filter by season" [(ngModel)]="seasonFilter">
+                    <mat-option value="0"></mat-option>
+                    <mat-option value="1">1</mat-option>
+                    <mat-option value="2">2</mat-option>
+                    <mat-option value="3">3</mat-option>
+                    <mat-option value="4">4</mat-option>
+                    <mat-option value="5">5</mat-option>
+                    <mat-option value="6">6</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="hide-watched">
+            <label>
+                <mat-checkbox [(ngModel)]="hideWatched"></mat-checkbox>
+                <span> Hide watched</span>
+            </label>
+        </div>
     </div>
 
     <mat-card>
